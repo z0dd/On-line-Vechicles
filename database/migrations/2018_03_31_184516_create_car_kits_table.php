@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMechanicsTable extends Migration
+class CreateCarKitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateMechanicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mechanics', function (Blueprint $table) {
+        Schema::create('car_kits', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->integer('user_id')->unique();
+            $table->integer('car_id');
+            $table->integer('kit_id');
+            $table->tinyInteger('availability')->default("0");
+            $table->index(['car_id','kit_id']);
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateMechanicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mechanics');
+        Schema::dropIfExists('car_kits');
     }
 }

@@ -15,6 +15,9 @@ class CreateVechiclesTable extends Migration
     {
         Schema::create('vechicles', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('number')->unique();
+            $table->integer('mileage')->default("0");
+            $table->tinyInteger("status")->default("0")->comment("0-at park/1-on line");
             $table->timestamps();
         });
     }
