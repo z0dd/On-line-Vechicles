@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['middleware'=>['mechanics']], function(){
-	Route::get('/', 'MechanicsController@index');
-	
+
+Route::middleware(['mechanics'])->group(function () {
+    // Route::get('/', 'MechanicsController@index');
 });
