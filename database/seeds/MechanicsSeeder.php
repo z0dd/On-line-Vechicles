@@ -11,6 +11,6 @@ class MechanicsSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Mechanic::class, 5)->make();
+    	factory(App\Mechanic::class, 5)->create();
     }
 }

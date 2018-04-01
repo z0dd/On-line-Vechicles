@@ -41,7 +41,13 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
-        'mechanics' => \App\Http\Middleware\Frontend::class,
+        
+        'mechanics' => [
+        	\App\Http\Middleware\Frontend::class,
+        ],
+        'admin' => [
+        	\App\Http\Middleware\Backend::class,
+        ],
     ];
 
     /**

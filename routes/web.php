@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::middleware(['mechanics'])->group(function () {
-    // Route::get('/', 'MechanicsController@index');
+Route::group(['prefix' => 'mechanics', 'middleware' => 'mechanics'], function () {
+    Route::get('/', [
+    	'as' => 'mechanics.index',
+    	'uses'=>'MechanicsController@index',
+    ]);
 });
